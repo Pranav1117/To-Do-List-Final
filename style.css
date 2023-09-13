@@ -1,0 +1,521 @@
+body{
+    min-height: 100vh;
+    background:linear-gradient(to right bottom,#1D5B79,#66ff99) ;
+    background-repeat: no-repeat;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#app-name{
+    font-size: 10vh;
+    color: #468B97;
+}
+#tasktext{
+    font-weight: bold;
+}
+#header{
+    display: flex;
+    font-size: 50px;
+    margin: 5% 0 0 10%;
+}
+#add-button{
+    z-index: 1;
+    position: absolute;
+    left: 80%;
+    cursor: pointer;
+    color: rgb(4, 0, 67);
+  
+}
+.extra{
+    z-index: 1;
+    position: absolute;
+    left: 84%;
+    cursor: pointer;
+}
+.color-red{
+    color: red;
+}
+#modal-div{
+    display: none;
+    position: fixed;
+    padding: 20% 0 0 30%;
+    top: -10%;
+    z-index: 1;
+    color: white;
+    background:rgba(255, 255,255 , 0.01);
+    backdrop-filter: blur(2px);
+    width: 100vw;
+    height: 100vh;
+}
+#modal-box{
+    border: 1px solid white;
+    border-radius: 7px;
+    width: 30vw;
+    height: 30%;
+    padding: 30px 0 0px 0px;
+    text-align: center;
+    color: black;
+    background:rgb(77, 230, 194);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    animation: modalPop 0.2s ease-in 0s 1;
+}
+.big-blue-text{
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.blue-button{
+    border-radius: 250px;
+    margin-top: 5%;
+    color: black;
+    background: rgb(2, 136, 127);
+    backdrop-filter: blur(5px);
+    border: 1px solid white;
+    width: 25%;
+    height: 17%;
+    
+}
+button{
+    border: none;
+}
+#modal-close-button{
+    margin-left: 10%;
+}
+.modal-content{
+    margin-top: 3%;
+}
+.bgcolor{
+    height: 100%;
+}
+.input-box{
+    width: 72%;
+    height: 15%;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 3px;
+    color: black;
+    background: rgba(255, 255,255);
+    backdrop-filter: blur(20px);
+    border: 1px solid white;
+}
+#outer-container {
+    margin-inline: auto;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between !important;
+    margin-right: 10%;
+    width: 90%;
+    margin-top: 7%;
+    gap: 1rem;
+    margin-inline: auto;
+}
+.card{
+    width: 30%;
+    list-style: none;
+    display: none;
+    position: relative;
+    min-height: 350px;
+    min-width: 19%;
+    text-align: center;
+    border-radius: 10px;
+    margin-inline: auto;
+     margin-top: 3%;
+   /* margin-left: 2rem   ; */
+    padding: 10px 0 0 0;
+    box-shadow:0px 0px 10px;
+    background: rgb(76, 183, 136);
+    backdrop-filter: blur(20px);
+    animation: cardAnimate 0.2s ease-in 0s 1;
+    border: 1px solid white;
+}
+.card-head{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 25px;
+    font-weight: 500;
+    color: #14465e;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+    overflow-wrap: break-word;
+    /* width: 90%; */
+    white-space: pre-wrap;
+}
+.list-element{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.buttons-in-card{
+    display: flex;
+    font-size: 30px;
+}
+.add-button-in-card{
+    position: absolute;
+    bottom: 15px;
+    font-size: 25px;
+    margin-left: 15%;
+    right: 10px;
+    cursor: pointer;
+    color: rgb(55, 55, 169);
+    background-color: white;
+}
+.delete-button-in-card{
+    position: absolute;
+    right: 50px;
+    bottom: 15px;
+    font-size: 25px;
+    cursor: pointer;
+    color: rgb(211, 49, 49);
+    background-color: white;
+}
+.in-list-button{
+    cursor: pointer;
+}
+#modal-div-card{
+    display: none;
+    position: fixed;
+    padding: 20% 0 0 30%;
+    text-align: center;
+    top: -10%;
+    z-index: 1;
+    color: white;
+    width: 100vw;
+    backdrop-filter: blur(3px);
+    height: 100vh;
+}
+#modal-box-card{
+    border-radius: 7px;
+    width: 30vw;
+    height: 28vh;
+    border: 1px solid rgb(165, 46, 46);
+    padding: 10px 0 0 0px;
+    text-align: center;
+    color: black;
+    border: 1px solid white;
+    background: rgb(78 243 188);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 45px rgba(0, 0, );
+    
+    animation: modalPop 0.2s ease-in 0s 1;
+}
+.this-list-element{
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    animation: cardTextAnimate 0.2s ease-in 0s 1;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    animation: cardTextAnimate 0.2s ease-in 0s 1;
+    overflow-wrap: break-word;
+    /* width: 90%; */
+    white-space: pre-wrap;
+}
+#check-done{
+    color: black;
+    background-color: grey;
+    display: none;
+}
+.mark-as-done-class{
+    background-color: rgb(77, 77, 228);
+    color: white;
+    font-size: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 3px 4px 4px 4px;
+}
+#back-button{
+    margin-left: 10%;
+   font-size: 40px;
+   display: none;
+}
+#back-icon{
+    z-index: 20;
+    font-size: 1.5em;   
+    color: #0d0043;
+    cursor: pointer;
+}
+#card-dynamic-head{
+    margin: auto;
+    width: 20rem;
+    /* height: 4%; */
+    justify-content: center;
+    font-size: 3rem;
+    line-break: anywhere;
+    font-weight: 700;
+    color: #511805;
+    display: none;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+#empty-list{
+    position: relative;
+    top: 10vh;
+    margin-left: 10vw;
+    color: rgb(69, 206, 42);
+    font-size: 45px;
+    font-weight: 800;
+}
+
+
+@media only screen and (min-width:250px) and (max-width:750px){
+
+body{
+     min-height: 100vh;
+  }
+
+#app-name{
+    font-size: 1em;
+    color: white;
+}
+
+#add-button{
+    position: absolute;
+    top: 1em;
+    right: 1.9em;
+}
+#back-button{
+    position: absolute;
+    top: 1.7em;
+}
+
+#modal-box{
+    position: relative;
+    top: 35%;
+    /* right: 17%; */
+    width: 70%;
+    height: 9rem;
+    margin-inline: auto;
+}
+
+#modal-div{
+    margin: 0px;
+    padding: 0;
+    margin-inline: auto;
+}
+
+
+
+#modal-input-box{
+    width: 72%;
+    height: 2rem;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 3px;
+    color: black;
+    background: rgba(255, 255,255);
+    backdrop-filter: blur(20px);
+    border: 1px solid white;
+}
+
+#outer-container{
+    position: relative;
+    top: 0em;
+    margin-top: 25%;
+}
+.card{
+    /* margin-left: 15%; */
+    position: relative;
+    top: 0em;
+    border: 1px solid white;
+    background: rgb(76, 183, 136);
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 10px ;
+    height: 50%;
+    width: 80%;
+}
+.extra{
+    font-size: 0.5em;
+    display: none;
+}
+
+.empty-list-span{
+    position: relative;
+    top: 2em;
+    font-size: 0.7em;
+    
+}
+
+.big-blue-text{
+    font-size: 1.5em;
+    color: #fafafa;
+}
+
+.blue-button{
+    border-radius: 250px;
+    margin-top: 5%;
+    color: white;
+    background: navy;
+    backdrop-filter: blur(5px);
+    border: 1px solid white;
+    width: 25%;
+    height: 2rem;
+    cursor: pointer;
+
+}
+#modal-close-button {
+    margin-left: 0px;
+}
+
+#modal-box-card{
+    position: relative;
+    top: 19%;
+    right: 15%;
+    border: 1px solid white;
+    background: rgb(78 243 188);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    height: 10rem;
+    width: 70%;
+}
+.card-head{
+    color: #200451;
+    overflow-wrap: break-word;
+    /* width: 90%; */
+    white-space: pre-wrap;
+}
+.input-box{
+    width: 72%;
+    height: 2rem;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 3px;
+    color: black;
+    background: rgba(255, 255,255);
+    backdrop-filter: blur(20px);
+    border: 1px solid white;  
+}
+
+.this-list-element{
+    color: white;
+}
+
+#back-icon{
+    color: #0d0043;
+    size: 20px;
+}
+.go-back{
+    display: none;
+}
+
+#card-dynamic-head{
+    color: #66ff99;
+    width: 27%;
+}
+}
+
+
+@media only screen and (min-width:768px) and (max-width:1024px){
+
+    #app-name{
+        font-size: 3rem;
+    }
+    #header{
+        display: flex;
+
+    }
+    #add-button{
+        float: right;
+        width: 2rem;
+    }
+   .card{
+    width: 40%;
+    margin-inline: auto;
+   }
+    .extra{
+        font-size: 1.5rem;
+        margin-left: 2rem;
+    }
+
+    #modal-box{
+        transform: translate(5%,50%);
+        height:10rem;
+        width: 40%;
+    }
+    #modal-close-button{
+        height: 2.5rem;
+    }
+    #modal-add-button{
+        height: 2.5rem;
+    }
+    .input-box{
+        height: 2rem;
+    }
+    
+
+    #modal-box-card{
+        height: 10rem;
+        transform: translate(5%,90%);
+        width: 40%;
+
+    }
+    #outer-container{
+        margin-inline: auto;
+    }
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
